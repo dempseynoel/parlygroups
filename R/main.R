@@ -1,7 +1,7 @@
 # Main functions for fetching details on APPGs
 
-# Fetch details on APPG groups
-
+#' Fetch details on APPG groups
+#'
 #' \code{fetch_appg_groups} fetches basic details on the names of APPGs, their
 #' purpose and category type. Each row is one APPG.
 #'
@@ -33,8 +33,8 @@ fetch_appg_groups <- function(appg = NA, category = NA) {
   table
 }
 
-# Fetch details on members of APPGs
-
+#' Fetch details on members of APPGs
+#'
 #' \code{fetch_appg_members} fetches details on which MPs and Lords are members
 #' of APPGs along with their role and party affiliation. Each row is one
 #' APPG membership.

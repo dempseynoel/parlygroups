@@ -2,9 +2,7 @@
 % Please edit documentation in R/main.R
 \name{fetch_appg_members}
 \alias{fetch_appg_members}
-\title{\code{fetch_appg_members} fetches details on which MPs and Lords are members
-of APPGs along with their role and party affiliation. Each row is one
-APPG membership.}
+\title{Fetch details on members of APPGs}
 \usage{
 fetch_appg_members(appg = NA, category = NA, member = NA,
   party = NA)
@@ -32,6 +30,11 @@ A tibble of details on APPG membership, with one row per APPG
 member.
 }
 \description{
+\code{fetch_appg_members} fetches details on which MPs and Lords are members
+of APPGs along with their role and party affiliation. Each row is one
+APPG membership.
+}
+\details{
 If no parameters are supplied the function will return all APPG members.
 }
 \examples{

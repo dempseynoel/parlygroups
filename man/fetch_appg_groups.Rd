@@ -2,8 +2,7 @@
 % Please edit documentation in R/main.R
 \name{fetch_appg_groups}
 \alias{fetch_appg_groups}
-\title{\code{fetch_appg_groups} fetches basic details on the names of APPGs, their
-purpose and category type. Each row is one APPG.}
+\title{Fetch details on APPG groups}
 \usage{
 fetch_appg_groups(appg = NA, category = NA)
 }
@@ -20,6 +19,10 @@ vector with more than one element. By default all APPG types are selected.}
 A tibble of basic details of APPGs, with one row per APPG.
 }
 \description{
+\code{fetch_appg_groups} fetches basic details on the names of APPGs, their
+purpose and category type. Each row is one APPG.
+}
+\details{
 If no parameters are supplied the function will return all APPGs.
 }
 \examples{

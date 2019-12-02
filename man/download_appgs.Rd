@@ -7,6 +7,10 @@
 download_appgs(register_date, pause = 1, save = FALSE)
 }
 \arguments{
+\item{register_date}{A character string of the date of the register of interest
+written within a pair of single qoute or double qoutes. The date must be in
+ISO 8601 format, i.e. ("YYYY-MM-DD").}
+
 \item{pause}{A non-negative numeric indicating length of time in seconds to
 pause between accessing APPG pages. Set to 1 by default. A longer pause helps
 minimise burden on the Parliamentary website.}
@@ -15,10 +19,6 @@ minimise burden on the Parliamentary website.}
 .csv files. Additionally, a list object of the raw APPG download is saved as an
 .RDS file. All files are saved in the current working environmnent. By default
 save is FALSE.}
-
-\item{appg_register}{A character string of the date of the register of interest
-written within a pair of single qoute or double qoutes. The date must be in
-ISO 8601 format, i.e. ("YYYY-MM-DD").}
 }
 \description{
 \code{download_appgs} scrapes and caches entries in the Register of All-Party

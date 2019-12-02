@@ -11,7 +11,7 @@ cache <- new.env(parent = emptyenv())
 #' although if you do a list object of raw tables is returned. If the environment
 #' is closed the cached download will be lost.
 #'
-#' @param appg_register A character string of the date of the register of interest
+#' @param register_date A character string of the date of the register of interest
 #' written within a pair of single qoute or double qoutes. The date must be in
 #' ISO 8601 format, i.e. ("YYYY-MM-DD").
 #' @param pause A non-negative numeric indicating length of time in seconds to
@@ -66,9 +66,6 @@ download_appgs <- function(register_date, pause = 1, save = FALSE) {
   # Save data if requested
   if (save == TRUE) {
     save_cached_tables(register_date)
-    get_cached_tables("tables")
-  } else {
-    get_cached_tables("tables")
   }
 }
 
