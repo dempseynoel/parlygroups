@@ -21,7 +21,7 @@ The secondary functions are all prefixed ```fetch_appg_*``` and return tibbles b
 
 ```r
 parlygroups::fetch_appg_groups(category = "Subject")
-parlygroups::fetch_appg_members(member = c("Chi Onwurah"), category = "Subject")
+parlygroups::fetch_appg_members(member = "Chi Onwurah", category = "Subject")
 parlygroups::fetch_appg_financial(category = "Subject", value_from = 1000, value_to = 2000)
 parlygroups::fetch_appg_benefits(received_from = "2018-01-01", received_to = "2018-06-01")
 parlygroups::fetch_appg_agm(category = "Subject", statement = "No")
