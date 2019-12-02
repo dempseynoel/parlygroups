@@ -24,5 +24,5 @@ The package does not yet have unit tests, but the functions appear to work as in
 Install from GitHub using devtools.
 ```
 install.packages("devtools")
-devtools::install_github("dempseynoel/mpinterests")
+devtools::install_github("dempseynoel/parlygroups")
 ```
