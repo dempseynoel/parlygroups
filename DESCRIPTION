@@ -1,0 +1,21 @@
+Package: parlygroups
+Type: Package
+Title: A package for scraping data from the "Register of All-Party
+  Parliamentary Groups".
+Version: 0.1.0
+Author: Noel Dempsey
+Maintainer: Noel Dempsey <noel.dempsey@outlook.com>
+Description: This package uses web scraping to gather data contained within the
+  House of Commons' "Register of All-Party Parliamentary Groups" (APPGs).
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+  rvest,
+  stringr,
+  purrr,
+  dplyr,
+  tibble,
+  magrittr,
+  xml2
+RoxygenNote: 6.1.1
