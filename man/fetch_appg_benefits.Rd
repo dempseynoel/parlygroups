@@ -69,6 +69,6 @@ benefits in kind to APPGs.
 }
 \examples{
 fetch_appg_benefits()
-fetch_appg_benefits(category = "Subject", low_value_from = 1000, low_value_to = 2000 )
+fetch_appg_benefits(category = "Subject", low_value_from = 1000, low_value_to = 2000)
 fetch_appg_benefits(received_from = "2018-01-01", received_to = "2018-06-01")
 }

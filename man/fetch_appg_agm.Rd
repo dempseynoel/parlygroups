@@ -56,6 +56,6 @@ APPG AGMs.
 }
 \examples{
 fetch_appg_agm()
-fetch_appg_agm(category = "Subject", statement = "No" )
+fetch_appg_agm(category = "Subject", statement = "No")
 fetch_appg_agm(deadline_from = "2019-11-01", deadline_to = "2020-06-01")
 }

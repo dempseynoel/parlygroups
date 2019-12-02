@@ -62,6 +62,6 @@ financial gift/aid given to APPGs.
 }
 \examples{
 fetch_appg_financial()
-fetch_appg_financial(category = "Subject", value_from = 1000, value_to = 2000 )
+fetch_appg_financial(category = "Subject", value_from = 1000, value_to = 2000)
 fetch_appg_financial(received_from = "2018-01-01", received_to = "2018-06-01")
 }

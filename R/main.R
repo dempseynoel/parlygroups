@@ -60,7 +60,7 @@ fetch_appg_groups <- function(appg = NA, category = NA) {
 #' @examples
 #' fetch_appg_members()
 #' fetch_appg_members(member = c("Chi Onwurah", "Lord Chidgey"))
-#' fetch_appg_members(member = c("Chi Onwurah"), category = "Subject")
+#' fetch_appg_members(member = "Chi Onwurah", category = "Subject")
 #' @export
 
 fetch_appg_members <- function(appg = NA, category = NA, member = NA, party = NA) {
@@ -121,7 +121,7 @@ fetch_appg_members <- function(appg = NA, category = NA, member = NA, party = NA
 #' row per APPG financial gift or aid.
 #' @examples
 #' fetch_appg_financial()
-#' fetch_appg_financial(category = "Subject", value_from = 1000, value_to = 2000 )
+#' fetch_appg_financial(category = "Subject", value_from = 1000, value_to = 2000)
 #' fetch_appg_financial(received_from = "2018-01-01", received_to = "2018-06-01")
 #' @export
 
@@ -197,7 +197,7 @@ fetch_appg_financial <- function(
 #' row per APPG benefit in kind.
 #' @examples
 #' fetch_appg_benefits()
-#' fetch_appg_benefits(category = "Subject", low_value_from = 1000, low_value_to = 2000 )
+#' fetch_appg_benefits(category = "Subject", low_value_from = 1000, low_value_to = 2000)
 #' fetch_appg_benefits(received_from = "2018-01-01", received_to = "2018-06-01")
 #' @export
 
@@ -268,7 +268,7 @@ fetch_appg_benefits <- function(
 #' row per APPG AGM.
 #' @examples
 #' fetch_appg_agm()
-#' fetch_appg_agm(category = "Subject", statement = "No" )
+#' fetch_appg_agm(category = "Subject", statement = "No")
 #' fetch_appg_agm(deadline_from = "2019-11-01", deadline_to = "2020-06-01")
 #' @export
 

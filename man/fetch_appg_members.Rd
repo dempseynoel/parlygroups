@@ -40,5 +40,5 @@ If no parameters are supplied the function will return all APPG members.
 \examples{
 fetch_appg_members()
 fetch_appg_members(member = c("Chi Onwurah", "Lord Chidgey"))
-fetch_appg_members(member = c("Chi Onwurah"), category = "Subject")
+fetch_appg_members(member = "Chi Onwurah", category = "Subject")
 }
