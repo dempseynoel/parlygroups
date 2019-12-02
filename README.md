@@ -14,10 +14,18 @@ Pause is a non-negative numeric indicating length of time in seconds to pause be
 Save is a boolean which if TRUE saves the cached data as a series of .csv/.RDS files in your current working directory. This is intended to be a QOL argument allowing users to avoid re-downloading the same APPG register each time in a new session. By default 'save' is FALSE. 
 
 ```r
-download_appgs(register_date = "2019-11-05", pause = 0, save = TRUE)
+parlygroups::download_appgs(register_date = "2019-11-05", pause = 0, save = TRUE)
 ```
 
-The secondary functions are all prefixed ```fetch_appg_*``` and return tibbles based on the main five types of entry in the Register of All-Party Parliamentary Groups. For example, ```fetch_appg_members``` fetches details on which MPs and Lords are members of APPGs along with their role and party affiliation. 
+The secondary functions are all prefixed ```fetch_appg_*``` and return tibbles based on the main five types of entry in the Register of All-Party Parliamentary Groups. For example, ```fetch_appg_members``` fetches details on which MPs and Lords are members of APPGs along with their role and party affiliation. See documentation for each fetch_appg_* function for full list of arguments.
+
+```r
+parlygroups::fetch_appg_groups(category = "Subject")
+parlygroups::fetch_appg_members(member = c("Chi Onwurah"), category = "Subject")
+parlygroups::fetch_appg_financial(category = "Subject", value_from = 1000, value_to = 2000)
+parlygroups::fetch_appg_benefits(received_from = "2018-01-01", received_to = "2018-06-01")
+parlygroups::fetch_appg_agm(category = "Subject", statement = "No")
+```
 
 ## Example
 
