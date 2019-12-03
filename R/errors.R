@@ -6,7 +6,7 @@
 #' @keywords internal
 
 date_format_error <- function(register_date) {
-  string::str_glue(stringr::str_c(
+  stringr::str_glue(stringr::str_c(
     "{register_date} is not a valid register date or date string: check ",
     "register date of interest and use format YYYY-MM-DD within a pair of ",
     "sinle qoute or double qoutes"))
