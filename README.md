@@ -55,13 +55,6 @@ parlygroups::appgs_agm()
 ```
 Retrieved details on the latest Annual General Meeting (AGM) held by the APPG, whether a statement of income and expenditure was issued, the date of the latest AGM, and the reporting year. Each row is one APPG AGM record.
 
-```r
-parlygroups::fetch_appg_members(member = "Chi Onwurah", category = "Subject")
-parlygroups::fetch_appg_financial(category = "Subject", value_from = 1000, value_to = 2000)
-parlygroups::fetch_appg_benefits(received_from = "2018-01-01", received_to = "2018-06-01")
-parlygroups::fetch_appg_agm(category = "Subject", statement = "No")
-```
-
 ## Examples
 
 ## Testing 
