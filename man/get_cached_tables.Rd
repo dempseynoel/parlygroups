@@ -4,7 +4,7 @@
 \alias{get_cached_tables}
 \title{Get cached appg tables}
 \usage{
-get_cached_tables(get = c("tables", "groups", "members", "financial",
+get_cached_tables(get = c("tables", "groups", "officers", "financial",
   "benefits", "agm"))
 }
 \description{

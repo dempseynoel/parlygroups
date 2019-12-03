@@ -6,8 +6,8 @@ cache <- new.env(parent = emptyenv())
 
 #' Download Register of All-Party Parliamentary Groups
 #'
-#' \code{download_appgs} scrapes and caches entries in the Register of All-Party
-#' Parliamentary Groups. It is not necessary to assign when using download_appgs(),
+#' \code{download_appg} scrapes and caches entries in the Register of All-Party
+#' Parliamentary Groups. It is not necessary to assign when using download_appg(),
 #' although if you do a list object of raw tables is returned. If the environment
 #' is closed the cached download will be lost.
 #'
@@ -23,13 +23,13 @@ cache <- new.env(parent = emptyenv())
 #' save is FALSE.
 #' @return NULL
 #' @examples
-#' download_appgs("2019-11-05")
-#' download_appgs("2019-11-05", pause = 0.5)
-#' download_appgs("2019-11-05", pause = 0.5, save = TRUE)
-#' data <- download_appgs("2019-11-05")
+#' download_appg("2019-11-05")
+#' download_appg("2019-11-05", pause = 0.5)
+#' download_appg("2019-11-05", pause = 0.5, save = TRUE)
+#' data <- download_appg("2019-11-05")
 #' @export
 
-download_appgs <- function(register_date, pause = 1, save = FALSE) {
+download_appg <- function(register_date, pause = 1, save = FALSE) {
 
   # Check for errors
   if (!is.character(register_date))
@@ -57,7 +57,7 @@ download_appgs <- function(register_date, pause = 1, save = FALSE) {
 
   # Assign to cache
   assign(CACHE_APPG_GROUPS, process_appg_groups(tables), envir = cache)
-  assign(CACHE_APPG_MEMBERS, process_appg_members(tables), envir = cache)
+  assign(CACHE_APPG_OFFICERS, process_appg_officers(tables), envir = cache)
   assign(CACHE_APPG_FINANCIAL, process_appg_financial(tables), envir = cache)
   assign(CACHE_APPG_BENEFITS, process_appg_benefits(tables), envir = cache)
   assign(CACHE_APPG_AGM, process_appg_agm(tables), envir = cache)
@@ -73,7 +73,7 @@ download_appgs <- function(register_date, pause = 1, save = FALSE) {
 #'
 #' @keywords internal
 
-get_cached_tables <- function(get = c("tables", "groups", "members", "financial", "benefits", "agm")) {
+get_cached_tables <- function(get = c("tables", "groups", "officers", "financial", "benefits", "agm")) {
 
   # Check for errors
   if (!exists(CACHE_APPG_REGISTER, envir = cache)) stop(appg_cache_error())
@@ -81,8 +81,8 @@ get_cached_tables <- function(get = c("tables", "groups", "members", "financial"
   # Retrieve desired cache
   if (get == "groups") {
     get(CACHE_APPG_GROUPS, envir = cache)
-  } else if (get == "members") {
-    get(CACHE_APPG_MEMBERS, envir = cache)
+  } else if (get == "officers") {
+    get(CACHE_APPG_OFFICERS, envir = cache)
   } else if (get == "financial") {
     get(CACHE_APPG_FINANCIAL, envir = cache)
   } else if (get == "benefits") {
@@ -108,10 +108,10 @@ save_cached_tables <- function(register_date) {
     get_cached_tables("groups"),
     stringr::str_glue("groups_{register_date}.csv"))
 
-  # Members
+  # officers
   readr::write_csv(
-    get_cached_tables("members"),
-    stringr::str_glue("members_{register_date}.csv"))
+    get_cached_tables("officers"),
+    stringr::str_glue("officers_{register_date}.csv"))
 
   # Financial
   readr::write_csv(

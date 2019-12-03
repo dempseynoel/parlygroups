@@ -2,7 +2,7 @@
 
 #' Fetch details on APPG groups
 #'
-#' \code{appgs_groups} retrieves basic details on the names of APPGs, their
+#' \code{appg_groups} retrieves basic details on the names of APPGs, their
 #' purpose and category type. Each row is one APPG.
 #'
 #' If no parameters are supplied the function will return all APPGs.
@@ -16,11 +16,11 @@
 #'
 #' @return A tibble of basic details of APPGs, with one row per APPG.
 #' @examples
-#' appgs_groups()
-#' appgs_groups(category = "Subject")
+#' appg_groups()
+#' appg_groups(category = "Subject")
 #' @export
 
-appgs_groups <- function(appg = NA, category = NA) {
+appg_groups <- function(appg = NA, category = NA) {
 
   # Get group table
   table <- get_cached_tables("groups")
@@ -33,13 +33,13 @@ appgs_groups <- function(appg = NA, category = NA) {
   table
 }
 
-#' Fetch details on members of APPGs
+#' Fetch details on officers of APPGs
 #'
-#' \code{appgs_members} retrieves details on which MPs and Lords are members
+#' \code{appg_officers} retrieves details on which MPs and Lords are officers
 #' of APPGs along with their role and party affiliation. Each row is one
-#' APPG membership.
+#' APPG officer.
 #'
-#' If no parameters are supplied the function will return all APPG members.
+#' If no parameters are supplied the function will return all APPG officers.
 #'
 #' @param appg A character string of an APPG title written within a pair of single
 #' qoute or double qoutes. Can be a vector with more than one element. By default
@@ -47,31 +47,31 @@ appgs_groups <- function(appg = NA, category = NA) {
 #' @param category A characer string of a APPG type written within a pair of single
 #' qoute or double qoutes. APPG types available: Country, Subject, Club. Can be a
 #' vector with more than one element. By default all APPG types are selected.
-#' @param member A character string of an APPG member written within a pair of
+#' @param officer A character string of an APPG officer written within a pair of
 #' single qoute or double qoutes. Can be a vector with more than one element.
-#' By default all APPG members are selected.
+#' By default all APPG officers are selected.
 #' @param party A character string of a political party/grouping within the House
 #' of Commons or House of Lords written within a pair of single qoute or double
 #' qoutes. Can be a vector with more than one element. By default all parties are
 #' selected.
 #'
-#' @return A tibble of details on APPG membership, with one row per APPG
-#' member.
+#' @return A tibble of details on APPG officers, with one row per APPG
+#' officer.
 #' @examples
-#' appgs_members()
-#' appgs_members(member = c("Chi Onwurah", "Lord Chidgey"))
-#' appgs_members(member = "Chi Onwurah", category = "Subject")
+#' appg_officers()
+#' appg_officers(officer = c("Chi Onwurah", "Lord Chidgey"))
+#' appg_officers(officer = "Chi Onwurah", category = "Subject")
 #' @export
 
-appgs_members <- function(appg = NA, category = NA, member = NA, party = NA) {
+appg_officers <- function(appg = NA, category = NA, officer = NA, party = NA) {
 
   # Get members table
-  table <- get_cached_tables(get = "members")
+  table <- get_cached_tables(get = "officers")
 
   # Filter if parameters used
   table <- filter_basic(table, appg, table$title)
   table <- filter_basic(table, category, table$category)
-  table <- filter_basic(table, member, table$officer_name)
+  table <- filter_basic(table, officer, table$officer_name)
   table <- filter_basic(table, category, table$category)
   table <- filter_basic(table, party, table$officer_party)
 
@@ -81,7 +81,7 @@ appgs_members <- function(appg = NA, category = NA, member = NA, party = NA) {
 
 #' Fetch details on APPG financial funding
 #'
-#' \code{appgs_financial} retrieves details on financial funding given
+#' \code{appg_financial} retrieves details on financial funding given
 #' to APPGs along with the source and value of the funding, date recieved and
 #' registered. Each row is one APPG financial funding record.
 #'
@@ -120,12 +120,12 @@ appgs_members <- function(appg = NA, category = NA, member = NA, party = NA) {
 #' @return A tibble of key details on APPG financial funding, with one
 #' row per APPG financial funding.
 #' @examples
-#' appgs_financial()
-#' appgs_financial(category = "Subject", value_from = 1000, value_to = 2000)
-#' appgs_financial(received_from = "2018-01-01", received_to = "2018-06-01")
+#' appg_financial()
+#' appg_financial(category = "Subject", value_from = 1000, value_to = 2000)
+#' appg_financial(received_from = "2018-01-01", received_to = "2018-06-01")
 #' @export
 
-appgs_financial <- function(
+appg_financial <- function(
   appg = NA,
   category = NA,
   source = NA,
@@ -153,7 +153,7 @@ appgs_financial <- function(
 
 #' Fetch details on APPG benefits in kind
 #'
-#' \code{appgs_benefits} retrieves details on benefits in kind given
+#' \code{appg_benefits} retrieves details on benefits in kind given
 #' to APPGs along with the source of the benefit, benefit value range, date
 #' recieved and registered. Each row is one APPG benefit in kind record.
 #'
@@ -196,12 +196,12 @@ appgs_financial <- function(
 #' @return A tibble of key details on APPG benefits in kind, with one
 #' row per APPG benefit in kind.
 #' @examples
-#' appgs_benefits()
-#' appgs_benefits(category = "Subject", low_value_from = 1000, low_value_to = 2000)
-#' appgs_benefits(received_from = "2018-01-01", received_to = "2018-06-01")
+#' appg_benefits()
+#' appg_benefits(category = "Subject", low_value_from = 1000, low_value_to = 2000)
+#' appg_benefits(received_from = "2018-01-01", received_to = "2018-06-01")
 #' @export
 
-appgs_benefits <- function(
+appg_benefits <- function(
   appg = NA,
   category = NA,
   source = NA,
@@ -232,7 +232,7 @@ appgs_benefits <- function(
 
 #' Fetch details on APPG Annual General Meetings
 #'
-#' \code{appgs_agm} retrieves details on APPG Annual General Meetings
+#' \code{appg_agm} retrieves details on APPG Annual General Meetings
 #' along with whether a financial statement was issued, the latest AGM meeting
 #' and reporting year. Each row is one APPG AGM record.
 #'
@@ -267,12 +267,12 @@ appgs_benefits <- function(
 #' @return A tibble of key details on APPG Annual General Meetings, with one
 #' row per APPG AGM.
 #' @examples
-#' appgs_agm()
-#' appgs_agm(category = "Subject", statement = "No")
-#' appgs_agm(deadline_from = "2019-11-01", deadline_to = "2020-06-01")
+#' appg_agm()
+#' appg_agm(category = "Subject", statement = "No")
+#' appg_agm(deadline_from = "2019-11-01", deadline_to = "2020-06-01")
 #' @export
 
-appgs_agm <- function(
+appg_agm <- function(
   appg = NA,
   category = NA,
   statement = NA,

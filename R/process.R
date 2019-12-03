@@ -17,19 +17,19 @@ process_appg_groups <- function(tables) {
 #'
 #' @keywords internal
 
-process_appg_members <- function(tables) {
-  member_table_list <- purrr::map(tables, function(table) {
-    member_table <- dplyr::bind_rows(
+process_appg_officer <- function(tables) {
+  officer_table_list <- purrr::map(tables, function(table) {
+    officer_table <- dplyr::bind_rows(
       get_title_table(table),
       get_officer_table(table)) %>%
         tidyr::fill(
           category,
           purpose,
           title)
-    tibble::as_tibble(member_table[-1,])
+    tibble::as_tibble(officer_table[-1,])
   })
-  mem_table <- dplyr::bind_rows(member_table_list)
-  mem_table <- mem_table[, c(3, 2, 1, 4, 5, 6)]
+  off_table <- dplyr::bind_rows(officer_table_list)
+  off_table <- off_table[, c(3, 2, 1, 4, 5, 6)]
 }
 
 #' Process financial table
