@@ -2,9 +2,7 @@
 parlygroups offers a suite of functions for web-scraping data contained within the House of Commons' "Register of All-Party Parliamentary Groups" (APPGs).
 
 ## Overview
-According to [Parliament](https://publications.parliament.uk/pa/cm/cmallparty/191105/introduction.htm) an "All-Party Parliamentary Group (APPG) consists of Members of both Houses who join together to pursue a particular topic or interest". The register of APPGs "contains the financial and other information about Groups which the House has decided should be published". The register is published both as a web page and a PDF document. 
-
-Links to all registers is available [HERE](https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-all-party-party-parliamentary-groups/)
+According to [Parliament](https://publications.parliament.uk/pa/cm/cmallparty/191105/introduction.htm) an "All-Party Parliamentary Group (APPG) consists of Members of both Houses who join together to pursue a particular topic or interest". The register of APPGs "contains the financial and other information about Groups which the House has decided should be published". The register is published both as a web page and a PDF document. Links to all registers is available [here](https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-all-party-party-parliamentary-groups/).
 
 ## Usage
 The package provides one primary function to web-scrape and download the data contained in each APPG web page: ```download_appgs()```. The downloaded data is stored in a cache within a hidden environment that is retrieved locally by the  secondary functions prefixed ```appgs_*```.
