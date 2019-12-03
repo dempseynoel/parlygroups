@@ -57,7 +57,7 @@ download_appg <- function(register_date, pause = 1, save = FALSE) {
 
   # Assign to cache
   assign(CACHE_APPG_GROUPS, process_appg_groups(tables), envir = cache)
-  assign(CACHE_APPG_OFFICERS, process_appg_officers(tables), envir = cache)
+  assign(CACHE_APPG_OFFICERS, process_appg_officer(tables), envir = cache)
   assign(CACHE_APPG_FINANCIAL, process_appg_financial(tables), envir = cache)
   assign(CACHE_APPG_BENEFITS, process_appg_benefits(tables), envir = cache)
   assign(CACHE_APPG_AGM, process_appg_agm(tables), envir = cache)
