@@ -1,8 +1,8 @@
-# Main functions for fetching details on APPGs
+# Main functions for retrieving details on APPGs
 
 #' Fetch details on APPG groups
 #'
-#' \code{fetch_appg_groups} fetches basic details on the names of APPGs, their
+#' \code{appgs_groups} retrieves basic details on the names of APPGs, their
 #' purpose and category type. Each row is one APPG.
 #'
 #' If no parameters are supplied the function will return all APPGs.
@@ -16,11 +16,11 @@
 #'
 #' @return A tibble of basic details of APPGs, with one row per APPG.
 #' @examples
-#' fetch_appg_groups()
-#' fetch_appg_groups(category = "Subject")
+#' appgs_groups()
+#' appgs_groups(category = "Subject")
 #' @export
 
-fetch_appg_groups <- function(appg = NA, category = NA) {
+appgs_groups <- function(appg = NA, category = NA) {
 
   # Get group table
   table <- get_cached_tables("groups")
@@ -35,7 +35,7 @@ fetch_appg_groups <- function(appg = NA, category = NA) {
 
 #' Fetch details on members of APPGs
 #'
-#' \code{fetch_appg_members} fetches details on which MPs and Lords are members
+#' \code{appgs_members} retrieves details on which MPs and Lords are members
 #' of APPGs along with their role and party affiliation. Each row is one
 #' APPG membership.
 #'
@@ -58,12 +58,12 @@ fetch_appg_groups <- function(appg = NA, category = NA) {
 #' @return A tibble of details on APPG membership, with one row per APPG
 #' member.
 #' @examples
-#' fetch_appg_members()
-#' fetch_appg_members(member = c("Chi Onwurah", "Lord Chidgey"))
-#' fetch_appg_members(member = "Chi Onwurah", category = "Subject")
+#' appgs_members()
+#' appgs_members(member = c("Chi Onwurah", "Lord Chidgey"))
+#' appgs_members(member = "Chi Onwurah", category = "Subject")
 #' @export
 
-fetch_appg_members <- function(appg = NA, category = NA, member = NA, party = NA) {
+appgs_members <- function(appg = NA, category = NA, member = NA, party = NA) {
 
   # Get members table
   table <- get_cached_tables(get = "members")
@@ -79,14 +79,14 @@ fetch_appg_members <- function(appg = NA, category = NA, member = NA, party = NA
   table
 }
 
-#' Fetch details on APPG financial gifts and aid
+#' Fetch details on APPG financial funding
 #'
-#' \code{fetch_appg_financial} fetches details on financial gifts and aid given
-#' to APPGs along with the source and value of the aid, date recieved and registered.
-#' Each row is one APPG financial gift/aid record.
+#' \code{appgs_financial} retrieves details on financial funding given
+#' to APPGs along with the source and value of the funding, date recieved and
+#' registered. Each row is one APPG financial funding record.
 #'
 #' If no parameters are supplied the function will return a tibble of all
-#' financial gift/aid given to APPGs.
+#' financial funding given to APPGs.
 #'
 #' @param appg A character string of an APPG title written within a pair of single
 #' qoute or double qoutes. Can be a vector with more than one element. By default
@@ -94,38 +94,38 @@ fetch_appg_members <- function(appg = NA, category = NA, member = NA, party = NA
 #' @param category A characer string of a APPG type written within a pair of single
 #' qoute or double qoutes. APPG types available: Country, Subject, Club. Can be a
 #' vector with more than one element. By default all APPG types are selected.
-#' @param source A character string of the source of financial gift/aid written
+#' @param source A character string of the source of financial funding written
 #' within a pair of single qoute or double qoutes. Can be a vector with more than
 #' one element. By default all sources are selected.
 #' @param value_from A non-negative numeric indicating the value of the financial
-#' gift/aid. By default the minimum value in the data is used.
+#' funding. By default the minimum value in the data is used.
 #' @param value_to A non-negative numeric indicating the value of the financial
-#' gift/aid. By default the maximum value if the data is used.
+#' funding. By default the maximum value if the data is used.
 #' @param received_from A character string of the date when the financial
-#' gift/aid was received written within a pair of single qoute
+#' funding was received written within a pair of single qoute
 #' or double qoutes. The date must be in ISO 8601 format, i.e. ("YYYY-MM-DD").
 #' By default the earliest date in the data is used.
 #' @param received_to A character string of the date when the financial
-#' gift/aid was received written within a pair of single qoute
+#' funding was received written within a pair of single qoute
 #' or double qoutes. The date must be in ISO 8601 format, i.e. ("YYYY-MM-DD").
 #' By default the latest date in the data is used.
 #' @param registered_from A character string of the date when the financial
-#' gift/aid was registered written within a pair of single qoute
+#' funding was registered written within a pair of single qoute
 #' or double qoutes. The date must be in ISO 8601 format, i.e. ("YYYY-MM-DD").
 #' By default the earliest date in the data is used.
 #' @param registered_to A character string of the date when the financial
-#' gift/aid was registered written within a pair of single qoute
+#' funding was registered written within a pair of single qoute
 #' or double qoutes. The date must be in ISO 8601 format, i.e. ("YYYY-MM-DD").
 #' By default the latest date in the data is used.
-#' @return A tibble of key details on APPG financial gifts and aid, with one
-#' row per APPG financial gift or aid.
+#' @return A tibble of key details on APPG financial funding, with one
+#' row per APPG financial funding.
 #' @examples
-#' fetch_appg_financial()
-#' fetch_appg_financial(category = "Subject", value_from = 1000, value_to = 2000)
-#' fetch_appg_financial(received_from = "2018-01-01", received_to = "2018-06-01")
+#' appgs_financial()
+#' appgs_financial(category = "Subject", value_from = 1000, value_to = 2000)
+#' appgs_financial(received_from = "2018-01-01", received_to = "2018-06-01")
 #' @export
 
-fetch_appg_financial <- function(
+appgs_financial <- function(
   appg = NA,
   category = NA,
   source = NA,
@@ -153,7 +153,7 @@ fetch_appg_financial <- function(
 
 #' Fetch details on APPG benefits in kind
 #'
-#' \code{fetch_appg_benefits} fetches details on benefits in kind given
+#' \code{appgs_benefits} retrieves details on benefits in kind given
 #' to APPGs along with the source of the benefit, benefit value range, date
 #' recieved and registered. Each row is one APPG benefit in kind record.
 #'
@@ -196,12 +196,12 @@ fetch_appg_financial <- function(
 #' @return A tibble of key details on APPG benefits in kind, with one
 #' row per APPG benefit in kind.
 #' @examples
-#' fetch_appg_benefits()
-#' fetch_appg_benefits(category = "Subject", low_value_from = 1000, low_value_to = 2000)
-#' fetch_appg_benefits(received_from = "2018-01-01", received_to = "2018-06-01")
+#' appgs_benefits()
+#' appgs_benefits(category = "Subject", low_value_from = 1000, low_value_to = 2000)
+#' appgs_benefits(received_from = "2018-01-01", received_to = "2018-06-01")
 #' @export
 
-fetch_appg_benefits <- function(
+appgs_benefits <- function(
   appg = NA,
   category = NA,
   source = NA,
@@ -232,7 +232,7 @@ fetch_appg_benefits <- function(
 
 #' Fetch details on APPG Annual General Meetings
 #'
-#' \code{fetch_appg_agm} fetches details on APPG Annual General Meetings
+#' \code{appgs_agm} retrieves details on APPG Annual General Meetings
 #' along with whether a financial statement was issued, the latest AGM meeting
 #' and reporting year. Each row is one APPG AGM record.
 #'
@@ -267,12 +267,12 @@ fetch_appg_benefits <- function(
 #' @return A tibble of key details on APPG Annual General Meetings, with one
 #' row per APPG AGM.
 #' @examples
-#' fetch_appg_agm()
-#' fetch_appg_agm(category = "Subject", statement = "No")
-#' fetch_appg_agm(deadline_from = "2019-11-01", deadline_to = "2020-06-01")
+#' appgs_agm()
+#' appgs_agm(category = "Subject", statement = "No")
+#' appgs_agm(deadline_from = "2019-11-01", deadline_to = "2020-06-01")
 #' @export
 
-fetch_appg_agm <- function(
+appgs_agm <- function(
   appg = NA,
   category = NA,
   statement = NA,
