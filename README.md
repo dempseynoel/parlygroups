@@ -55,7 +55,8 @@ parlygroups::appgs_agm()
 ```
 Retrieved details on the latest Annual General Meeting (AGM) held by the APPG, whether a statement of income and expenditure was issued, the date of the latest AGM, and the reporting year. Each row is one APPG AGM record.
 
-## Examples
+## Example
+![](parlygroups.gif)
 
 ## Testing 
 The package does not yet have unit tests, but the functions appear to work as intended. You should satisfy yourself that the functions behave in the way that you expect if you wish to use this package for research purposes.
