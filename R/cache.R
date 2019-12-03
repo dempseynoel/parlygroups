@@ -45,7 +45,7 @@ download_appgs <- function(register_date, pause = 1, save = FALSE) {
 
   # Get list of appg urls and check if empty/error
   appg_urls <- get_appg_urls(register_date)
-  if (nrow(appg_urls) == 0) stop(date_format_errror(register_date))
+  if (nrow(appg_urls) == 0) stop(date_format_error(register_date))
 
   # Show progress bar
   message("This may take a minute...")
