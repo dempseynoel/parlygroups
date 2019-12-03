@@ -2,7 +2,7 @@
 parlygroups offers a suite of functions for web-scraping data contained within the House of Commons' "Register of All-Party Parliamentary Groups" (APPGs).
 
 ## Overview
-According to [Parliament](https://publications.parliament.uk/pa/cm/cmallparty/191105/introduction.htm) an "All-Party Parliamentary Group (APPG) consists of Members of both Houses who join together to pursue a particular topic or interest". The register of APPGs "contains the financial and other information about Groups which the House has decided should be published". The register is published both as a web page and a PDF document. Links to all registers is available [here](https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-all-party-party-parliamentary-groups/).
+According to [Parliament](https://publications.parliament.uk/pa/cm/cmallparty/191105/introduction.htm) an "All-Party Parliamentary Group (APPG) consists of Members of both Houses who join together to pursue a particular topic or interest". The register of APPGs "contains the financial and other information about Groups which the House has decided should be published". The register is published both as a web page and a PDF document. Links to all registers are available [here](https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-all-party-party-parliamentary-groups/).
 
 ## Usage
 The package provides one primary function to web-scrape and download the data contained in each APPG web page: ```download_appgs()```. The downloaded data is stored in a cache within a hidden environment that is retrieved locally by the  secondary functions prefixed ```appgs_*```.
@@ -23,7 +23,7 @@ In addition to the primary ```register_date``` argument of ```download_appgs()``
 parlygroups::download_appgs(register_date = "2019-11-05", pause = 0, save = TRUE)
 ```
 
-The secondary functions are all prefixed ```appgs_*``` and return tibbles based on the main five types of entry in the Register of All-Party Parliamentary Groups: group details, members, finance received, benefits in kind received, and details on the latest Annual General Meeting. By default all arguments within the functions are left as NA (i.e. blank) meaning that the complete set of data will be retrieved.
+The secondary functions are all prefixed ```appgs_*``` and return tibbles based on the main five types of entry in the Register of All-Party Parliamentary Groups: group details, members, finance received, benefits in kind received, and details on the latest Annual General Meeting. By default all arguments within the functions are left as NA (i.e. blank) meaning that the complete set of data will be retrieved. If parameters are supplied to the function arguments a filtered set of data will be retrieved. See the package help documentation for each function to see a full list of available arguments.
 
 ---
 ```r
@@ -69,7 +69,7 @@ The package does not yet have unit tests, but the functions appear to work as in
 
 ## Installation
 Install from GitHub using devtools.
-```
+```r
 install.packages("devtools")
 devtools::install_github("dempseynoel/parlygroups")
 ```
