@@ -58,7 +58,7 @@ Retrieved details on the latest Annual General Meeting (AGM) held by the APPG, w
 ## Example
 
 <p align="center">
-  <img src="parlygroups.gif" width="50%" align="centre">
+  <img src="parlygroups_final.gif" width="50%" align="centre">
 </p>
 
 ## Testing 
