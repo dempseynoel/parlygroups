@@ -72,10 +72,10 @@ get_financial_table <- function(table) {
     financial_table <- tibble::as_tibble(financial_table)
   } else {
     financial_table <- tibble::tibble(
-      financial_source = NA,
-      financial_value = NA,
-      financial_received = NA,
-      financial_registered = NA)
+      financial_source = NULL,
+      financial_value = NULL,
+      financial_received = NULL,
+      financial_registered = NULL)
     financial_table <- financial_table[-1,]
   }
 }
@@ -107,10 +107,10 @@ get_benefits_table <- function(table) {
     benefits_table <- tibble::as_tibble(benefits_table)
   } else {
     benefits_table <- tibble::tibble(
-      benefit_source = NA,
-      benefit_description = NA,
-      benefit_value = NA,
-      benefit_received = NA,
-      benefit_registered = NA)
+      benefit_source = NULL,
+      benefit_description = NULL,
+      benefit_value = NULL,
+      benefit_received = NULL,
+      benefit_registered = NULL)
   }
 }
