@@ -23,6 +23,7 @@ get_title_table <- function(table) {
   title_table$category <- stringr::str_remove_all(title_table$category, pattern = "Group")
   title_table$category <- stringr::str_trim(title_table$category, side = "both")
   title_table <- tibble::as_tibble(title_table)
+  title_table
 }
 
 #' Get officer table
@@ -38,6 +39,7 @@ get_officer_table <- function(table) {
     officer_party = X3)
   officer_table <- officer_table[-1,]
   officer_table <- tibble::as_tibble(officer_table)
+  officer_table
 }
 
 #' Get agm table
@@ -53,6 +55,7 @@ get_agm_table <- function(table) {
       reporting_deadline = 3,
       reporting_year = 4)
   agm_table <- tibble::as_tibble(agm_table)
+  agm_table
 }
 
 #' Get financial table
@@ -78,6 +81,7 @@ get_financial_table <- function(table) {
       financial_registered = NULL)
     financial_table <- financial_table[-1,]
   }
+  financial_table
 }
 
 #' Get benefits table
@@ -113,4 +117,5 @@ get_benefits_table <- function(table) {
       benefit_received = NULL,
       benefit_registered = NULL)
   }
+  benefits_table
 }
